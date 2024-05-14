@@ -2,6 +2,7 @@ package com.ruoyi.bussiness.controller;
 
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,14 +24,13 @@ import com.ruoyi.common.core.page.TableDataInfo;
 
 /**
  * 权重Controller
- * 
+ *
  * @author ruoyi
  * @date 2024-05-14
  */
 @RestController
 @RequestMapping("/bussiness/control")
-public class DbWeightControlController extends BaseController
-{
+public class DbWeightControlController extends BaseController {
     @Autowired
     private IDbWeightControlService dbWeightControlService;
 
@@ -39,8 +39,7 @@ public class DbWeightControlController extends BaseController
      */
     @PreAuthorize("@ss.hasPermi('bussiness:control:list')")
     @GetMapping("/list")
-    public TableDataInfo list(DbWeightControl dbWeightControl)
-    {
+    public TableDataInfo list(DbWeightControl dbWeightControl) {
         startPage();
         List<DbWeightControl> list = dbWeightControlService.selectDbWeightControlList(dbWeightControl);
         return getDataTable(list);
@@ -52,8 +51,7 @@ public class DbWeightControlController extends BaseController
     @PreAuthorize("@ss.hasPermi('bussiness:control:export')")
     @Log(title = "权重", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
-    public void export(HttpServletResponse response, DbWeightControl dbWeightControl)
-    {
+    public void export(HttpServletResponse response, DbWeightControl dbWeightControl) {
         List<DbWeightControl> list = dbWeightControlService.selectDbWeightControlList(dbWeightControl);
         ExcelUtil<DbWeightControl> util = new ExcelUtil<DbWeightControl>(DbWeightControl.class);
         util.exportExcel(response, list, "权重数据");
@@ -64,8 +62,7 @@ public class DbWeightControlController extends BaseController
      */
     @PreAuthorize("@ss.hasPermi('bussiness:control:query')")
     @GetMapping(value = "/{id}")
-    public AjaxResult getInfo(@PathVariable("id") Long id)
-    {
+    public AjaxResult getInfo(@PathVariable("id") Long id) {
         return success(dbWeightControlService.selectDbWeightControlById(id));
     }
 
@@ -75,8 +72,7 @@ public class DbWeightControlController extends BaseController
     @PreAuthorize("@ss.hasPermi('bussiness:control:add')")
     @Log(title = "权重", businessType = BusinessType.INSERT)
     @PostMapping
-    public AjaxResult add(@RequestBody DbWeightControl dbWeightControl)
-    {
+    public AjaxResult add(@RequestBody DbWeightControl dbWeightControl) {
         return toAjax(dbWeightControlService.insertDbWeightControl(dbWeightControl));
     }
 
@@ -86,8 +82,7 @@ public class DbWeightControlController extends BaseController
     @PreAuthorize("@ss.hasPermi('bussiness:control:edit')")
     @Log(title = "权重", businessType = BusinessType.UPDATE)
     @PutMapping
-    public AjaxResult edit(@RequestBody DbWeightControl dbWeightControl)
-    {
+    public AjaxResult edit(@RequestBody DbWeightControl dbWeightControl) {
         return toAjax(dbWeightControlService.updateDbWeightControl(dbWeightControl));
     }
 
@@ -96,9 +91,8 @@ public class DbWeightControlController extends BaseController
      */
     @PreAuthorize("@ss.hasPermi('bussiness:control:remove')")
     @Log(title = "权重", businessType = BusinessType.DELETE)
-	@DeleteMapping("/{ids}")
-    public AjaxResult remove(@PathVariable Long[] ids)
-    {
+    @DeleteMapping("/{ids}")
+    public AjaxResult remove(@PathVariable Long[] ids) {
         return toAjax(dbWeightControlService.deleteDbWeightControlByIds(ids));
     }
 }
