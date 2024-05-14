@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.bussiness.mapper.DbEvaluationIndexMapper">
+    
+    <resultMap type="DbEvaluationIndex" id="DbEvaluationIndexResult">
+        <result property="id"    column="id"    />
+        <result property="content"    column="content"    />
+        <result property="A"    column="A"    />
+        <result property="B"    column="B"    />
+        <result property="C"    column="C"    />
+        <result property="D"    column="D"    />
+        <result property="E"    column="E"    />
+    </resultMap>
+
+    <sql id="selectDbEvaluationIndexVo">
+        select id, content, A, B, C, D, E from db_evaluation_index
+    </sql>
+
+    <select id="selectDbEvaluationIndexList" parameterType="DbEvaluationIndex" resultMap="DbEvaluationIndexResult">
+        <include refid="selectDbEvaluationIndexVo"/>
+        <where>  
+            <if test="content != null  and content != ''"> and content = #{content}</if>
+            <if test="A != null "> and A = #{A}</if>
+            <if test="B != null "> and B = #{B}</if>
+            <if test="C != null "> and C = #{C}</if>
+            <if test="D != null "> and D = #{D}</if>
+            <if test="E != null "> and E = #{E}</if>
+        </where>
+    </select>
+    
+    <select id="selectDbEvaluationIndexById" parameterType="Long" resultMap="DbEvaluationIndexResult">
+        <include refid="selectDbEvaluationIndexVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertDbEvaluationIndex" parameterType="DbEvaluationIndex" useGeneratedKeys="true" keyProperty="id">
+        insert into db_evaluation_index
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="content != null">content,</if>
+            <if test="A != null">A,</if>
+            <if test="B != null">B,</if>
+            <if test="C != null">C,</if>
+            <if test="D != null">D,</if>
+            <if test="E != null">E,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="content != null">#{content},</if>
+            <if test="A != null">#{A},</if>
+            <if test="B != null">#{B},</if>
+            <if test="C != null">#{C},</if>
+            <if test="D != null">#{D},</if>
+            <if test="E != null">#{E},</if>
+         </trim>
+    </insert>
+
+    <update id="updateDbEvaluationIndex" parameterType="DbEvaluationIndex">
+        update db_evaluation_index
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="content != null">content = #{content},</if>
+            <if test="A != null">A = #{A},</if>
+            <if test="B != null">B = #{B},</if>
+            <if test="C != null">C = #{C},</if>
+            <if test="D != null">D = #{D},</if>
+            <if test="E != null">E = #{E},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteDbEvaluationIndexById" parameterType="Long">
+        delete from db_evaluation_index where id = #{id}
+    </delete>
+
+    <delete id="deleteDbEvaluationIndexByIds" parameterType="String">
+        delete from db_evaluation_index where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

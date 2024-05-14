@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.bussiness.mapper.DbStatusMapper">
+    
+    <resultMap type="DbStatus" id="DbStatusResult">
+        <result property="id"    column="id"    />
+        <result property="userId"    column="user_id"    />
+        <result property="status"    column="status"    />
+    </resultMap>
+
+    <sql id="selectDbStatusVo">
+        select id, user_id, status from db_status
+    </sql>
+
+    <select id="selectDbStatusList" parameterType="DbStatus" resultMap="DbStatusResult">
+        <include refid="selectDbStatusVo"/>
+        <where>  
+            <if test="userId != null "> and user_id = #{userId}</if>
+            <if test="status != null "> and status = #{status}</if>
+        </where>
+    </select>
+    
+    <select id="selectDbStatusById" parameterType="Long" resultMap="DbStatusResult">
+        <include refid="selectDbStatusVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertDbStatus" parameterType="DbStatus" useGeneratedKeys="true" keyProperty="id">
+        insert into db_status
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userId != null">user_id,</if>
+            <if test="status != null">status,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userId != null">#{userId},</if>
+            <if test="status != null">#{status},</if>
+         </trim>
+    </insert>
+
+    <update id="updateDbStatus" parameterType="DbStatus">
+        update db_status
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="userId != null">user_id = #{userId},</if>
+            <if test="status != null">status = #{status},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteDbStatusById" parameterType="Long">
+        delete from db_status where id = #{id}
+    </delete>
+
+    <delete id="deleteDbStatusByIds" parameterType="String">
+        delete from db_status where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

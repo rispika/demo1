@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.bussiness.mapper.DbTotalPointMapper">
+    
+    <resultMap type="DbTotalPoint" id="DbTotalPointResult">
+        <result property="id"    column="id"    />
+        <result property="userId"    column="user_id"    />
+        <result property="total"    column="total"    />
+    </resultMap>
+
+    <sql id="selectDbTotalPointVo">
+        select id, user_id, total from db_total_point
+    </sql>
+
+    <select id="selectDbTotalPointList" parameterType="DbTotalPoint" resultMap="DbTotalPointResult">
+        <include refid="selectDbTotalPointVo"/>
+        <where>  
+            <if test="userId != null "> and user_id = #{userId}</if>
+            <if test="total != null "> and total = #{total}</if>
+        </where>
+    </select>
+    
+    <select id="selectDbTotalPointById" parameterType="Long" resultMap="DbTotalPointResult">
+        <include refid="selectDbTotalPointVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertDbTotalPoint" parameterType="DbTotalPoint" useGeneratedKeys="true" keyProperty="id">
+        insert into db_total_point
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userId != null">user_id,</if>
+            <if test="total != null">total,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userId != null">#{userId},</if>
+            <if test="total != null">#{total},</if>
+         </trim>
+    </insert>
+
+    <update id="updateDbTotalPoint" parameterType="DbTotalPoint">
+        update db_total_point
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="userId != null">user_id = #{userId},</if>
+            <if test="total != null">total = #{total},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteDbTotalPointById" parameterType="Long">
+        delete from db_total_point where id = #{id}
+    </delete>
+
+    <delete id="deleteDbTotalPointByIds" parameterType="String">
+        delete from db_total_point where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
