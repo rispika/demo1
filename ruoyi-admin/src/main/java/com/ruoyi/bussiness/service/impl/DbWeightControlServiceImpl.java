@@ -9,7 +9,7 @@ import com.ruoyi.bussiness.domain.DbWeightControl;
 import com.ruoyi.bussiness.service.IDbWeightControlService;
 
 /**
- * 权重Service业务层处理
+ * 评价权重Service业务层处理
  *
  * @author ruoyi
  * @date 2024-05-14
@@ -21,10 +21,10 @@ public class DbWeightControlServiceImpl extends ServiceImpl<DbWeightControlMappe
     private DbWeightControlMapper dbWeightControlMapper;
 
     /**
-     * 查询权重
+     * 查询评价权重
      *
-     * @param id 权重主键
-     * @return 权重
+     * @param id 评价权重主键
+     * @return 评价权重
      */
     @Override
     public DbWeightControl selectDbWeightControlById(Long id)
@@ -33,10 +33,10 @@ public class DbWeightControlServiceImpl extends ServiceImpl<DbWeightControlMappe
     }
 
     /**
-     * 查询权重列表
+     * 查询评价权重列表
      *
-     * @param dbWeightControl 权重
-     * @return 权重
+     * @param dbWeightControl 评价权重
+     * @return 评价权重
      */
     @Override
     public List<DbWeightControl> selectDbWeightControlList(DbWeightControl dbWeightControl)
@@ -45,9 +45,9 @@ public class DbWeightControlServiceImpl extends ServiceImpl<DbWeightControlMappe
     }
 
     /**
-     * 新增权重
+     * 新增评价权重
      *
-     * @param dbWeightControl 权重
+     * @param dbWeightControl 评价权重
      * @return 结果
      */
     @Override
@@ -57,9 +57,9 @@ public class DbWeightControlServiceImpl extends ServiceImpl<DbWeightControlMappe
     }
 
     /**
-     * 修改权重
+     * 修改评价权重
      *
-     * @param dbWeightControl 权重
+     * @param dbWeightControl 评价权重
      * @return 结果
      */
     @Override
@@ -69,9 +69,9 @@ public class DbWeightControlServiceImpl extends ServiceImpl<DbWeightControlMappe
     }
 
     /**
-     * 批量删除权重
+     * 批量删除评价权重
      *
-     * @param ids 需要删除的权重主键
+     * @param ids 需要删除的评价权重主键
      * @return 结果
      */
     @Override
@@ -81,9 +81,9 @@ public class DbWeightControlServiceImpl extends ServiceImpl<DbWeightControlMappe
     }
 
     /**
-     * 删除权重信息
+     * 删除评价权重信息
      *
-     * @param id 权重主键
+     * @param id 评价权重主键
      * @return 结果
      */
     @Override

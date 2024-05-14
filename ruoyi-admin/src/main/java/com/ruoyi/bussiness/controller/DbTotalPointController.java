@@ -22,7 +22,7 @@ import com.ruoyi.common.utils.poi.ExcelUtil;
 import com.ruoyi.common.core.page.TableDataInfo;
 
 /**
- * 总分Controller
+ * 评价结果Controller
  * 
  * @author ruoyi
  * @date 2024-05-14
@@ -35,7 +35,7 @@ public class DbTotalPointController extends BaseController
     private IDbTotalPointService dbTotalPointService;
 
     /**
-     * 查询总分列表
+     * 查询评价结果列表
      */
     @PreAuthorize("@ss.hasPermi('bussiness:point:list')")
     @GetMapping("/list")
@@ -47,20 +47,20 @@ public class DbTotalPointController extends BaseController
     }
 
     /**
-     * 导出总分列表
+     * 导出评价结果列表
      */
     @PreAuthorize("@ss.hasPermi('bussiness:point:export')")
-    @Log(title = "总分", businessType = BusinessType.EXPORT)
+    @Log(title = "评价结果", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     public void export(HttpServletResponse response, DbTotalPoint dbTotalPoint)
     {
         List<DbTotalPoint> list = dbTotalPointService.selectDbTotalPointList(dbTotalPoint);
         ExcelUtil<DbTotalPoint> util = new ExcelUtil<DbTotalPoint>(DbTotalPoint.class);
-        util.exportExcel(response, list, "总分数据");
+        util.exportExcel(response, list, "评价结果数据");
     }
 
     /**
-     * 获取总分详细信息
+     * 获取评价结果详细信息
      */
     @PreAuthorize("@ss.hasPermi('bussiness:point:query')")
     @GetMapping(value = "/{id}")
@@ -70,10 +70,10 @@ public class DbTotalPointController extends BaseController
     }
 
     /**
-     * 新增总分
+     * 新增评价结果
      */
     @PreAuthorize("@ss.hasPermi('bussiness:point:add')")
-    @Log(title = "总分", businessType = BusinessType.INSERT)
+    @Log(title = "评价结果", businessType = BusinessType.INSERT)
     @PostMapping
     public AjaxResult add(@RequestBody DbTotalPoint dbTotalPoint)
     {
@@ -81,10 +81,10 @@ public class DbTotalPointController extends BaseController
     }
 
     /**
-     * 修改总分
+     * 修改评价结果
      */
     @PreAuthorize("@ss.hasPermi('bussiness:point:edit')")
-    @Log(title = "总分", businessType = BusinessType.UPDATE)
+    @Log(title = "评价结果", businessType = BusinessType.UPDATE)
     @PutMapping
     public AjaxResult edit(@RequestBody DbTotalPoint dbTotalPoint)
     {
@@ -92,10 +92,10 @@ public class DbTotalPointController extends BaseController
     }
 
     /**
-     * 删除总分
+     * 删除评价结果
      */
     @PreAuthorize("@ss.hasPermi('bussiness:point:remove')")
-    @Log(title = "总分", businessType = BusinessType.DELETE)
+    @Log(title = "评价结果", businessType = BusinessType.DELETE)
 	@DeleteMapping("/{ids}")
     public AjaxResult remove(@PathVariable Long[] ids)
     {

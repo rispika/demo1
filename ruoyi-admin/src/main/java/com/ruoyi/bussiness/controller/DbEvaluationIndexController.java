@@ -22,7 +22,7 @@ import com.ruoyi.common.utils.poi.ExcelUtil;
 import com.ruoyi.common.core.page.TableDataInfo;
 
 /**
- * 评价Controller
+ * 评价指标Controller
  * 
  * @author ruoyi
  * @date 2024-05-14
@@ -35,7 +35,7 @@ public class DbEvaluationIndexController extends BaseController
     private IDbEvaluationIndexService dbEvaluationIndexService;
 
     /**
-     * 查询评价列表
+     * 查询评价指标列表
      */
     @PreAuthorize("@ss.hasPermi('bussiness:index:list')")
     @GetMapping("/list")
@@ -47,20 +47,20 @@ public class DbEvaluationIndexController extends BaseController
     }
 
     /**
-     * 导出评价列表
+     * 导出评价指标列表
      */
     @PreAuthorize("@ss.hasPermi('bussiness:index:export')")
-    @Log(title = "评价", businessType = BusinessType.EXPORT)
+    @Log(title = "评价指标", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     public void export(HttpServletResponse response, DbEvaluationIndex dbEvaluationIndex)
     {
         List<DbEvaluationIndex> list = dbEvaluationIndexService.selectDbEvaluationIndexList(dbEvaluationIndex);
         ExcelUtil<DbEvaluationIndex> util = new ExcelUtil<DbEvaluationIndex>(DbEvaluationIndex.class);
-        util.exportExcel(response, list, "评价数据");
+        util.exportExcel(response, list, "评价指标数据");
     }
 
     /**
-     * 获取评价详细信息
+     * 获取评价指标详细信息
      */
     @PreAuthorize("@ss.hasPermi('bussiness:index:query')")
     @GetMapping(value = "/{id}")
@@ -70,10 +70,10 @@ public class DbEvaluationIndexController extends BaseController
     }
 
     /**
-     * 新增评价
+     * 新增评价指标
      */
     @PreAuthorize("@ss.hasPermi('bussiness:index:add')")
-    @Log(title = "评价", businessType = BusinessType.INSERT)
+    @Log(title = "评价指标", businessType = BusinessType.INSERT)
     @PostMapping
     public AjaxResult add(@RequestBody DbEvaluationIndex dbEvaluationIndex)
     {
@@ -81,10 +81,10 @@ public class DbEvaluationIndexController extends BaseController
     }
 
     /**
-     * 修改评价
+     * 修改评价指标
      */
     @PreAuthorize("@ss.hasPermi('bussiness:index:edit')")
-    @Log(title = "评价", businessType = BusinessType.UPDATE)
+    @Log(title = "评价指标", businessType = BusinessType.UPDATE)
     @PutMapping
     public AjaxResult edit(@RequestBody DbEvaluationIndex dbEvaluationIndex)
     {
@@ -92,10 +92,10 @@ public class DbEvaluationIndexController extends BaseController
     }
 
     /**
-     * 删除评价
+     * 删除评价指标
      */
     @PreAuthorize("@ss.hasPermi('bussiness:index:remove')")
-    @Log(title = "评价", businessType = BusinessType.DELETE)
+    @Log(title = "评价指标", businessType = BusinessType.DELETE)
 	@DeleteMapping("/{ids}")
     public AjaxResult remove(@PathVariable Long[] ids)
     {

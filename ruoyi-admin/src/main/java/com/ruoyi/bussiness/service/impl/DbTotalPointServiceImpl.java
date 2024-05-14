@@ -9,7 +9,7 @@ import com.ruoyi.bussiness.domain.DbTotalPoint;
 import com.ruoyi.bussiness.service.IDbTotalPointService;
 
 /**
- * 总分Service业务层处理
+ * 评价结果Service业务层处理
  *
  * @author ruoyi
  * @date 2024-05-14
@@ -21,10 +21,10 @@ public class DbTotalPointServiceImpl extends ServiceImpl<DbTotalPointMapper, DbT
     private DbTotalPointMapper dbTotalPointMapper;
 
     /**
-     * 查询总分
+     * 查询评价结果
      *
-     * @param id 总分主键
-     * @return 总分
+     * @param id 评价结果主键
+     * @return 评价结果
      */
     @Override
     public DbTotalPoint selectDbTotalPointById(Long id)
@@ -33,10 +33,10 @@ public class DbTotalPointServiceImpl extends ServiceImpl<DbTotalPointMapper, DbT
     }
 
     /**
-     * 查询总分列表
+     * 查询评价结果列表
      *
-     * @param dbTotalPoint 总分
-     * @return 总分
+     * @param dbTotalPoint 评价结果
+     * @return 评价结果
      */
     @Override
     public List<DbTotalPoint> selectDbTotalPointList(DbTotalPoint dbTotalPoint)
@@ -45,9 +45,9 @@ public class DbTotalPointServiceImpl extends ServiceImpl<DbTotalPointMapper, DbT
     }
 
     /**
-     * 新增总分
+     * 新增评价结果
      *
-     * @param dbTotalPoint 总分
+     * @param dbTotalPoint 评价结果
      * @return 结果
      */
     @Override
@@ -57,9 +57,9 @@ public class DbTotalPointServiceImpl extends ServiceImpl<DbTotalPointMapper, DbT
     }
 
     /**
-     * 修改总分
+     * 修改评价结果
      *
-     * @param dbTotalPoint 总分
+     * @param dbTotalPoint 评价结果
      * @return 结果
      */
     @Override
@@ -69,9 +69,9 @@ public class DbTotalPointServiceImpl extends ServiceImpl<DbTotalPointMapper, DbT
     }
 
     /**
-     * 批量删除总分
+     * 批量删除评价结果
      *
-     * @param ids 需要删除的总分主键
+     * @param ids 需要删除的评价结果主键
      * @return 结果
      */
     @Override
@@ -81,9 +81,9 @@ public class DbTotalPointServiceImpl extends ServiceImpl<DbTotalPointMapper, DbT
     }
 
     /**
-     * 删除总分信息
+     * 删除评价结果信息
      *
-     * @param id 总分主键
+     * @param id 评价结果主键
      * @return 结果
      */
     @Override

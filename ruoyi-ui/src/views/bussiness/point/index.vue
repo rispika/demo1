@@ -1,18 +1,18 @@
 <template>
   <div class="app-container">
     <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="68px">
-      <el-form-item label="用户id" prop="userId">
+      <el-form-item label="学生id" prop="userId">
         <el-input
           v-model="queryParams.userId"
-          placeholder="请输入用户id"
+          placeholder="请输入学生id"
           clearable
           @keyup.enter.native="handleQuery"
         />
       </el-form-item>
-      <el-form-item label="总分" prop="total">
+      <el-form-item label="评价总分" prop="total">
         <el-input
           v-model="queryParams.total"
-          placeholder="请输入总分"
+          placeholder="请输入评价总分"
           clearable
           @keyup.enter.native="handleQuery"
         />
@@ -72,8 +72,8 @@
     <el-table v-loading="loading" :data="pointList" @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="55" align="center" />
       <el-table-column label="序号" align="center" prop="id" />
-      <el-table-column label="用户id" align="center" prop="userId" />
-      <el-table-column label="总分" align="center" prop="total" />
+      <el-table-column label="学生id" align="center" prop="userId" />
+      <el-table-column label="评价总分" align="center" prop="total" />
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template slot-scope="scope">
           <el-button
@@ -105,11 +105,11 @@
     <!-- 添加或修改评价结果对话框 -->
     <el-dialog :title="title" :visible.sync="open" width="500px" append-to-body>
       <el-form ref="form" :model="form" :rules="rules" label-width="80px">
-        <el-form-item label="用户id" prop="userId">
-          <el-input v-model="form.userId" placeholder="请输入用户id" />
+        <el-form-item label="学生id" prop="userId">
+          <el-input v-model="form.userId" placeholder="请输入学生id" />
         </el-form-item>
-        <el-form-item label="总分" prop="total">
-          <el-input v-model="form.total" placeholder="请输入总分" />
+        <el-form-item label="评价总分" prop="total">
+          <el-input v-model="form.total" placeholder="请输入评价总分" />
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">

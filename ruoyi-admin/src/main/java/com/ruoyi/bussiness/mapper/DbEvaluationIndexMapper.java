@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.ruoyi.bussiness.domain.DbEvaluationIndex;
 
 /**
- * 评价Mapper接口
+ * 评价指标Mapper接口
  *
  * @author ruoyi
  * @date 2024-05-14
@@ -13,47 +13,47 @@ import com.ruoyi.bussiness.domain.DbEvaluationIndex;
 public interface DbEvaluationIndexMapper extends BaseMapper<DbEvaluationIndex>
 {
     /**
-     * 查询评价
+     * 查询评价指标
      *
-     * @param id 评价主键
-     * @return 评价
+     * @param id 评价指标主键
+     * @return 评价指标
      */
     public DbEvaluationIndex selectDbEvaluationIndexById(Long id);
 
     /**
-     * 查询评价列表
+     * 查询评价指标列表
      *
-     * @param dbEvaluationIndex 评价
-     * @return 评价集合
+     * @param dbEvaluationIndex 评价指标
+     * @return 评价指标集合
      */
     public List<DbEvaluationIndex> selectDbEvaluationIndexList(DbEvaluationIndex dbEvaluationIndex);
 
     /**
-     * 新增评价
+     * 新增评价指标
      *
-     * @param dbEvaluationIndex 评价
+     * @param dbEvaluationIndex 评价指标
      * @return 结果
      */
     public int insertDbEvaluationIndex(DbEvaluationIndex dbEvaluationIndex);
 
     /**
-     * 修改评价
+     * 修改评价指标
      *
-     * @param dbEvaluationIndex 评价
+     * @param dbEvaluationIndex 评价指标
      * @return 结果
      */
     public int updateDbEvaluationIndex(DbEvaluationIndex dbEvaluationIndex);
 
     /**
-     * 删除评价
+     * 删除评价指标
      *
-     * @param id 评价主键
+     * @param id 评价指标主键
      * @return 结果
      */
     public int deleteDbEvaluationIndexById(Long id);
 
     /**
-     * 批量删除评价
+     * 批量删除评价指标
      *
      * @param ids 需要删除的数据主键集合
      * @return 结果

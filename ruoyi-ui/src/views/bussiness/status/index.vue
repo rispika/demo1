@@ -1,10 +1,10 @@
 <template>
   <div class="app-container">
     <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="68px">
-      <el-form-item label="用户id" prop="userId">
+      <el-form-item label="学生id" prop="userId">
         <el-input
           v-model="queryParams.userId"
-          placeholder="请输入用户id"
+          placeholder="请输入学生id"
           clearable
           @keyup.enter.native="handleQuery"
         />
@@ -64,8 +64,8 @@
     <el-table v-loading="loading" :data="statusList" @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="55" align="center" />
       <el-table-column label="序号" align="center" prop="id" />
-      <el-table-column label="用户id" align="center" prop="userId" />
-      <el-table-column label="状态" align="center" prop="status" />
+      <el-table-column label="学生id" align="center" prop="userId" />
+      <el-table-column label="评价状态" align="center" prop="status" />
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template slot-scope="scope">
           <el-button
@@ -97,8 +97,8 @@
     <!-- 添加或修改状态对话框 -->
     <el-dialog :title="title" :visible.sync="open" width="500px" append-to-body>
       <el-form ref="form" :model="form" :rules="rules" label-width="80px">
-        <el-form-item label="用户id" prop="userId">
-          <el-input v-model="form.userId" placeholder="请输入用户id" />
+        <el-form-item label="学生id" prop="userId">
+          <el-input v-model="form.userId" placeholder="请输入学生id" />
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">

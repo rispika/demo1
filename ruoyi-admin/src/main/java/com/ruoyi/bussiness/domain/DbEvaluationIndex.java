@@ -8,7 +8,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.ruoyi.common.core.domain.BaseEntity;
 
 /**
- * 评价对象 db_evaluation_index
+ * 评价指标对象 db_evaluation_index
  *
  * @author ruoyi
  * @date 2024-05-14
@@ -17,48 +17,34 @@ import com.ruoyi.common.core.domain.BaseEntity;
 @TableName("db_evaluation_index")
 public class DbEvaluationIndex extends BaseEntity {
 
-    private static final long serialVersionUID = 1L;
+private static final long serialVersionUID=1L;
 
-    /**
-     * $column.columnComment
-     */
-    @TableId(type = IdType.AUTO)
+    /** 序号 */
+        @TableId(type = IdType.AUTO)
     private Long id;
 
-    /**
-     * $column.columnComment
-     */
-    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    /** 评价内容 */
+            @Excel(name = "评价内容")
     private String content;
 
-    /**
-     * $column.columnComment
-     */
-    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
-    private Long A;
+    /** 非常同意 */
+            @Excel(name = "非常同意")
+    private Long point1;
 
-    /**
-     * $column.columnComment
-     */
-    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
-    private Long B;
+    /** 比较同意 */
+            @Excel(name = "比较同意")
+    private Long point2;
 
-    /**
-     * $column.columnComment
-     */
-    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
-    private Long C;
+    /** 同意 */
+            @Excel(name = "同意")
+    private Long point3;
 
-    /**
-     * $column.columnComment
-     */
-    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
-    private Long D;
+    /** 不同意 */
+            @Excel(name = "不同意")
+    private Long point4;
 
-    /**
-     * $column.columnComment
-     */
-    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
-    private Long E;
+    /** 非常不同意 */
+            @Excel(name = "非常不同意")
+    private Long point5;
 
 }

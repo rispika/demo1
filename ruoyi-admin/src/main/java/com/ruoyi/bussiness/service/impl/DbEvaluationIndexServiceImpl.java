@@ -9,7 +9,7 @@ import com.ruoyi.bussiness.domain.DbEvaluationIndex;
 import com.ruoyi.bussiness.service.IDbEvaluationIndexService;
 
 /**
- * 评价Service业务层处理
+ * 评价指标Service业务层处理
  *
  * @author ruoyi
  * @date 2024-05-14
@@ -21,10 +21,10 @@ public class DbEvaluationIndexServiceImpl extends ServiceImpl<DbEvaluationIndexM
     private DbEvaluationIndexMapper dbEvaluationIndexMapper;
 
     /**
-     * 查询评价
+     * 查询评价指标
      *
-     * @param id 评价主键
-     * @return 评价
+     * @param id 评价指标主键
+     * @return 评价指标
      */
     @Override
     public DbEvaluationIndex selectDbEvaluationIndexById(Long id)
@@ -33,10 +33,10 @@ public class DbEvaluationIndexServiceImpl extends ServiceImpl<DbEvaluationIndexM
     }
 
     /**
-     * 查询评价列表
+     * 查询评价指标列表
      *
-     * @param dbEvaluationIndex 评价
-     * @return 评价
+     * @param dbEvaluationIndex 评价指标
+     * @return 评价指标
      */
     @Override
     public List<DbEvaluationIndex> selectDbEvaluationIndexList(DbEvaluationIndex dbEvaluationIndex)
@@ -45,9 +45,9 @@ public class DbEvaluationIndexServiceImpl extends ServiceImpl<DbEvaluationIndexM
     }
 
     /**
-     * 新增评价
+     * 新增评价指标
      *
-     * @param dbEvaluationIndex 评价
+     * @param dbEvaluationIndex 评价指标
      * @return 结果
      */
     @Override
@@ -57,9 +57,9 @@ public class DbEvaluationIndexServiceImpl extends ServiceImpl<DbEvaluationIndexM
     }
 
     /**
-     * 修改评价
+     * 修改评价指标
      *
-     * @param dbEvaluationIndex 评价
+     * @param dbEvaluationIndex 评价指标
      * @return 结果
      */
     @Override
@@ -69,9 +69,9 @@ public class DbEvaluationIndexServiceImpl extends ServiceImpl<DbEvaluationIndexM
     }
 
     /**
-     * 批量删除评价
+     * 批量删除评价指标
      *
-     * @param ids 需要删除的评价主键
+     * @param ids 需要删除的评价指标主键
      * @return 结果
      */
     @Override
@@ -81,9 +81,9 @@ public class DbEvaluationIndexServiceImpl extends ServiceImpl<DbEvaluationIndexM
     }
 
     /**
-     * 删除评价信息
+     * 删除评价指标信息
      *
-     * @param id 评价主键
+     * @param id 评价指标主键
      * @return 结果
      */
     @Override

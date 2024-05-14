@@ -19,16 +19,16 @@ public class DbStatus extends BaseEntity {
 
 private static final long serialVersionUID=1L;
 
-    /** $column.columnComment */
+    /** 序号 */
         @TableId(type = IdType.AUTO)
     private Long id;
 
-    /** $column.columnComment */
-            @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    /** 学生id */
+            @Excel(name = "学生id")
     private Long userId;
 
-    /** $column.columnComment */
-            @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    /** 评价状态 */
+            @Excel(name = "评价状态")
     private Integer status;
 
 }

@@ -1,49 +1,49 @@
 <template>
   <div class="app-container">
     <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="68px">
-      <el-form-item label="内容" prop="content">
+      <el-form-item label="评价内容" prop="content">
         <el-input
           v-model="queryParams.content"
-          placeholder="请输入内容"
+          placeholder="请输入评价内容"
           clearable
           @keyup.enter.native="handleQuery"
         />
       </el-form-item>
-      <el-form-item label="非常同意" prop="A">
+      <el-form-item label="非常同意" prop="point1">
         <el-input
-          v-model="queryParams.A"
+          v-model="queryParams.point1"
           placeholder="请输入非常同意"
           clearable
           @keyup.enter.native="handleQuery"
         />
       </el-form-item>
-      <el-form-item label="比较同意" prop="B">
+      <el-form-item label="比较同意" prop="point2">
         <el-input
-          v-model="queryParams.B"
+          v-model="queryParams.point2"
           placeholder="请输入比较同意"
           clearable
           @keyup.enter.native="handleQuery"
         />
       </el-form-item>
-      <el-form-item label="同意" prop="C">
+      <el-form-item label="同意" prop="point3">
         <el-input
-          v-model="queryParams.C"
+          v-model="queryParams.point3"
           placeholder="请输入同意"
           clearable
           @keyup.enter.native="handleQuery"
         />
       </el-form-item>
-      <el-form-item label="不同意" prop="D">
+      <el-form-item label="不同意" prop="point4">
         <el-input
-          v-model="queryParams.D"
+          v-model="queryParams.point4"
           placeholder="请输入不同意"
           clearable
           @keyup.enter.native="handleQuery"
         />
       </el-form-item>
-      <el-form-item label="非常不同意" prop="E">
+      <el-form-item label="非常不同意" prop="point5">
         <el-input
-          v-model="queryParams.E"
+          v-model="queryParams.point5"
           placeholder="请输入非常不同意"
           clearable
           @keyup.enter.native="handleQuery"
@@ -104,12 +104,12 @@
     <el-table v-loading="loading" :data="indexList" @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="55" align="center" />
       <el-table-column label="序号" align="center" prop="id" />
-      <el-table-column label="内容" align="center" prop="content" />
-      <el-table-column label="非常同意" align="center" prop="A" />
-      <el-table-column label="比较同意" align="center" prop="B" />
-      <el-table-column label="同意" align="center" prop="C" />
-      <el-table-column label="不同意" align="center" prop="D" />
-      <el-table-column label="非常不同意" align="center" prop="E" />
+      <el-table-column label="评价内容" align="center" prop="content" />
+      <el-table-column label="非常同意" align="center" prop="point1" />
+      <el-table-column label="比较同意" align="center" prop="point2" />
+      <el-table-column label="同意" align="center" prop="point3" />
+      <el-table-column label="不同意" align="center" prop="point4" />
+      <el-table-column label="非常不同意" align="center" prop="point5" />
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template slot-scope="scope">
           <el-button
@@ -141,23 +141,23 @@
     <!-- 添加或修改评价指标对话框 -->
     <el-dialog :title="title" :visible.sync="open" width="500px" append-to-body>
       <el-form ref="form" :model="form" :rules="rules" label-width="80px">
-        <el-form-item label="内容" prop="content">
-          <el-input v-model="form.content" placeholder="请输入内容" />
+        <el-form-item label="评价内容" prop="content">
+          <el-input v-model="form.content" placeholder="请输入评价内容" />
         </el-form-item>
-        <el-form-item label="非常同意" prop="A">
-          <el-input v-model="form.A" placeholder="请输入非常同意" />
+        <el-form-item label="非常同意" prop="point1">
+          <el-input v-model="form.point1" placeholder="请输入非常同意" />
         </el-form-item>
-        <el-form-item label="比较同意" prop="B">
-          <el-input v-model="form.B" placeholder="请输入比较同意" />
+        <el-form-item label="比较同意" prop="point2">
+          <el-input v-model="form.point2" placeholder="请输入比较同意" />
         </el-form-item>
-        <el-form-item label="同意" prop="C">
-          <el-input v-model="form.C" placeholder="请输入同意" />
+        <el-form-item label="同意" prop="point3">
+          <el-input v-model="form.point3" placeholder="请输入同意" />
         </el-form-item>
-        <el-form-item label="不同意" prop="D">
-          <el-input v-model="form.D" placeholder="请输入不同意" />
+        <el-form-item label="不同意" prop="point4">
+          <el-input v-model="form.point4" placeholder="请输入不同意" />
         </el-form-item>
-        <el-form-item label="非常不同意" prop="E">
-          <el-input v-model="form.E" placeholder="请输入非常不同意" />
+        <el-form-item label="非常不同意" prop="point5">
+          <el-input v-model="form.point5" placeholder="请输入非常不同意" />
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
@@ -198,11 +198,11 @@ export default {
         pageNum: 1,
         pageSize: 10,
         content: null,
-        A: null,
-        B: null,
-        C: null,
-        D: null,
-        E: null
+        point1: null,
+        point2: null,
+        point3: null,
+        point4: null,
+        point5: null
       },
       // 表单参数
       form: {},
@@ -234,11 +234,11 @@ export default {
       this.form = {
         id: null,
         content: null,
-        A: null,
-        B: null,
-        C: null,
-        D: null,
-        E: null
+        point1: null,
+        point2: null,
+        point3: null,
+        point4: null,
+        point5: null
       };
       this.resetForm("form");
     },

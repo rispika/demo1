@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.ruoyi.bussiness.domain.DbWeightControl;
 
 /**
- * 权重Service接口
+ * 评价权重Service接口
  *
  * @author ruoyi
  * @date 2024-05-14
@@ -13,49 +13,49 @@ import com.ruoyi.bussiness.domain.DbWeightControl;
 public interface IDbWeightControlService extends IService<DbWeightControl>
 {
     /**
-     * 查询权重
+     * 查询评价权重
      *
-     * @param id 权重主键
-     * @return 权重
+     * @param id 评价权重主键
+     * @return 评价权重
      */
     public DbWeightControl selectDbWeightControlById(Long id);
 
     /**
-     * 查询权重列表
+     * 查询评价权重列表
      *
-     * @param dbWeightControl 权重
-     * @return 权重集合
+     * @param dbWeightControl 评价权重
+     * @return 评价权重集合
      */
     public List<DbWeightControl> selectDbWeightControlList(DbWeightControl dbWeightControl);
 
     /**
-     * 新增权重
+     * 新增评价权重
      *
-     * @param dbWeightControl 权重
+     * @param dbWeightControl 评价权重
      * @return 结果
      */
     public int insertDbWeightControl(DbWeightControl dbWeightControl);
 
     /**
-     * 修改权重
+     * 修改评价权重
      *
-     * @param dbWeightControl 权重
+     * @param dbWeightControl 评价权重
      * @return 结果
      */
     public int updateDbWeightControl(DbWeightControl dbWeightControl);
 
     /**
-     * 批量删除权重
+     * 批量删除评价权重
      *
-     * @param ids 需要删除的权重主键集合
+     * @param ids 需要删除的评价权重主键集合
      * @return 结果
      */
     public int deleteDbWeightControlByIds(Long[] ids);
 
     /**
-     * 删除权重信息
+     * 删除评价权重信息
      *
-     * @param id 权重主键
+     * @param id 评价权重主键
      * @return 结果
      */
     public int deleteDbWeightControlById(Long id);

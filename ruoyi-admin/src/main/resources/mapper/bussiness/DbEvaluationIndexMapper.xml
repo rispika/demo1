@@ -7,26 +7,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <resultMap type="DbEvaluationIndex" id="DbEvaluationIndexResult">
         <result property="id"    column="id"    />
         <result property="content"    column="content"    />
-        <result property="A"    column="A"    />
-        <result property="B"    column="B"    />
-        <result property="C"    column="C"    />
-        <result property="D"    column="D"    />
-        <result property="E"    column="E"    />
+        <result property="point1"    column="point1"    />
+        <result property="point2"    column="point2"    />
+        <result property="point3"    column="point3"    />
+        <result property="point4"    column="point4"    />
+        <result property="point5"    column="point5"    />
     </resultMap>
 
     <sql id="selectDbEvaluationIndexVo">
-        select id, content, A, B, C, D, E from db_evaluation_index
+        select id, content, point1, point2, point3, point4, point5 from db_evaluation_index
     </sql>
 
     <select id="selectDbEvaluationIndexList" parameterType="DbEvaluationIndex" resultMap="DbEvaluationIndexResult">
         <include refid="selectDbEvaluationIndexVo"/>
         <where>  
             <if test="content != null  and content != ''"> and content = #{content}</if>
-            <if test="A != null "> and A = #{A}</if>
-            <if test="B != null "> and B = #{B}</if>
-            <if test="C != null "> and C = #{C}</if>
-            <if test="D != null "> and D = #{D}</if>
-            <if test="E != null "> and E = #{E}</if>
+            <if test="point1 != null "> and point1 = #{point1}</if>
+            <if test="point2 != null "> and point2 = #{point2}</if>
+            <if test="point3 != null "> and point3 = #{point3}</if>
+            <if test="point4 != null "> and point4 = #{point4}</if>
+            <if test="point5 != null "> and point5 = #{point5}</if>
         </where>
     </select>
     
@@ -39,19 +39,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         insert into db_evaluation_index
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="content != null">content,</if>
-            <if test="A != null">A,</if>
-            <if test="B != null">B,</if>
-            <if test="C != null">C,</if>
-            <if test="D != null">D,</if>
-            <if test="E != null">E,</if>
+            <if test="point1 != null">point1,</if>
+            <if test="point2 != null">point2,</if>
+            <if test="point3 != null">point3,</if>
+            <if test="point4 != null">point4,</if>
+            <if test="point5 != null">point5,</if>
          </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="content != null">#{content},</if>
-            <if test="A != null">#{A},</if>
-            <if test="B != null">#{B},</if>
-            <if test="C != null">#{C},</if>
-            <if test="D != null">#{D},</if>
-            <if test="E != null">#{E},</if>
+            <if test="point1 != null">#{point1},</if>
+            <if test="point2 != null">#{point2},</if>
+            <if test="point3 != null">#{point3},</if>
+            <if test="point4 != null">#{point4},</if>
+            <if test="point5 != null">#{point5},</if>
          </trim>
     </insert>
 
@@ -59,11 +59,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         update db_evaluation_index
         <trim prefix="SET" suffixOverrides=",">
             <if test="content != null">content = #{content},</if>
-            <if test="A != null">A = #{A},</if>
-            <if test="B != null">B = #{B},</if>
-            <if test="C != null">C = #{C},</if>
-            <if test="D != null">D = #{D},</if>
-            <if test="E != null">E = #{E},</if>
+            <if test="point1 != null">point1 = #{point1},</if>
+            <if test="point2 != null">point2 = #{point2},</if>
+            <if test="point3 != null">point3 = #{point3},</if>
+            <if test="point4 != null">point4 = #{point4},</if>
+            <if test="point5 != null">point5 = #{point5},</if>
         </trim>
         where id = #{id}
     </update>

@@ -8,7 +8,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.ruoyi.common.core.domain.BaseEntity;
 
 /**
- * 权重对象 db_weight_control
+ * 评价权重对象 db_weight_control
  *
  * @author ruoyi
  * @date 2024-05-14
@@ -19,16 +19,16 @@ public class DbWeightControl extends BaseEntity {
 
 private static final long serialVersionUID=1L;
 
-    /** $column.columnComment */
+    /** 序号 */
         @TableId(type = IdType.AUTO)
     private Long id;
 
-    /** $column.columnComment */
-            @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    /** 内容 */
+            @Excel(name = "内容")
     private String content;
 
-    /** $column.columnComment */
-            @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    /** 权重 */
+            @Excel(name = "权重")
     private Long weight;
 
 }

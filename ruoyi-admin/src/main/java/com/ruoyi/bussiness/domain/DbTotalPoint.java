@@ -8,7 +8,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.ruoyi.common.core.domain.BaseEntity;
 
 /**
- * 总分对象 db_total_point
+ * 评价结果对象 db_total_point
  *
  * @author ruoyi
  * @date 2024-05-14
@@ -19,16 +19,16 @@ public class DbTotalPoint extends BaseEntity {
 
 private static final long serialVersionUID=1L;
 
-    /** $column.columnComment */
+    /** 序号 */
         @TableId(type = IdType.AUTO)
     private Long id;
 
-    /** $column.columnComment */
-            @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    /** 学生id */
+            @Excel(name = "学生id")
     private Long userId;
 
-    /** $column.columnComment */
-            @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    /** 评价总分 */
+            @Excel(name = "评价总分")
     private Long total;
 
 }
