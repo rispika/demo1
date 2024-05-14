@@ -9,10 +9,10 @@
           @keyup.enter.native="handleQuery"
         />
       </el-form-item>
-      <el-form-item label="全虫" prop="weight">
+      <el-form-item label="权重" prop="weight">
         <el-input
           v-model="queryParams.weight"
-          placeholder="请输入全虫"
+          placeholder="请输入权重"
           clearable
           @keyup.enter.native="handleQuery"
         />
@@ -73,7 +73,7 @@
       <el-table-column type="selection" width="55" align="center" />
       <el-table-column label="序号" align="center" prop="id" />
       <el-table-column label="内容" align="center" prop="content" />
-      <el-table-column label="全虫" align="center" prop="weight" />
+      <el-table-column label="权重" align="center" prop="weight" />
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template slot-scope="scope">
           <el-button
@@ -108,8 +108,8 @@
         <el-form-item label="内容" prop="content">
           <el-input v-model="form.content" placeholder="请输入内容" />
         </el-form-item>
-        <el-form-item label="全虫" prop="weight">
-          <el-input v-model="form.weight" placeholder="请输入全虫" />
+        <el-form-item label="权重" prop="weight">
+          <el-input v-model="form.weight" placeholder="请输入权重" />
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
